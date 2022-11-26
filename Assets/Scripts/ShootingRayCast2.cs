@@ -44,6 +44,7 @@ public class ShootingRayCast2 : MonoBehaviour
     {
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, aimColliderMask))
         {
+           
             hitTarget = hit.transform;
             //Debug.Log(hit.transform.gameObject.name);
             Debug.DrawRay(ray.origin, ray.direction * hit.distance, Color.blue);
