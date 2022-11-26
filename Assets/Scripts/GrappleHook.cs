@@ -8,12 +8,24 @@ public class GrappleHook : ShootingRayCast2
     Keyboard keyboard;
     [SerializeField]
     CharacterController controller;
+    [Header("Grapple Hook Variables")]
     [SerializeField]
     private bool _usingGrapple;
     [SerializeField]
     private int speed = 12;
 
+    [SerializeField]
+    private LineRenderer lineRender;
+   
+    public Transform startPoint;
+
     Vector3 direction;
+
+    private void Awake()
+    {
+        lineRender = GetComponent<LineRenderer>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,11 +43,15 @@ public class GrappleHook : ShootingRayCast2
 
     public override void ShootRay()
     {
-        if (keyboard.fKey.isPressed && !usingGrapple)
+       
+        if (keyboard.fKey.IsPressed() && !usingGrapple)
         {
             base.ShootRay();
-           
+
         }
+
+        
+
         MoveTowardsTarget();
 
     }
@@ -61,7 +77,13 @@ public class GrappleHook : ShootingRayCast2
     {
         if (usingGrapple)
         {
-            controller.Move(direction.normalized * speed * Time.deltaTime);
+            controller.Move(direction * speed * Time.deltaTime);
+            lineRender.SetPosition(0, startPoint.position);
+            lineRender.SetPosition(1, hit.point);
+        }
+        else
+        {
+            lineRender.SetPositions(new Vector3[] { this.transform.position, this.transform.position});
         }
        
     }
