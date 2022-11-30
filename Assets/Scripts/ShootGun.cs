@@ -8,6 +8,8 @@ public class ShootGun : ShootingRayCast2
     Mouse mouse;
     [Header("Bullet fx")]
     public Transform bulletFX;
+   
+    public GameObject muzzleFlash;
     [Header("Fire Rate Variables")]
     [SerializeField]
     private float fireRate = 0.1f;
@@ -18,6 +20,7 @@ public class ShootGun : ShootingRayCast2
     {
         mouse = Mouse.current;
         bulletFX.gameObject.GetComponent<ParticleSystem>().Stop();
+        muzzleFlash.gameObject.GetComponent<ParticleSystem>().Stop();
     }
 
     // Update is called once per frame
@@ -32,6 +35,7 @@ public class ShootGun : ShootingRayCast2
         {
             nextShot = 0f;
             base.ShootRay();
+            muzzleFlash.gameObject.GetComponent<ParticleSystem>().Play();
         }
         if (nextShot < fireRate)
         {

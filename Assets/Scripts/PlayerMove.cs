@@ -42,11 +42,12 @@ public class PlayerMove : MonoBehaviour
 
         if (hook.usingGrapple)
         {
-            gravityScale = 0;
+           // gravityScale = 0;
+            ySpeed.y = 0;
         }
         else 
         {
-            gravityScale = -10f;
+            //gravityScale = -10f;
         }
 
 
@@ -83,6 +84,10 @@ public class PlayerMove : MonoBehaviour
         Debug.Log(controller.isGrounded);
 
         ySpeed.y +=  gravityScale *  Time.deltaTime;
+        if (ySpeed.y >= 30f)
+        {
+            ySpeed.y = 30f;
+        }
         controller.Move(ySpeed * Time.deltaTime);
       
 

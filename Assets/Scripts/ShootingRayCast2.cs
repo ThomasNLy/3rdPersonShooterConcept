@@ -14,6 +14,8 @@ public class ShootingRayCast2 : MonoBehaviour
     protected Transform hitTarget = null;
     [SerializeField]
     protected RaycastHit hit;
+    [SerializeField]
+    protected float maxHitDistance = Mathf.Infinity;
 
     // crosshair/ screen center variables
     protected Ray ray; // creating a ray from the center of the screen
@@ -42,7 +44,7 @@ public class ShootingRayCast2 : MonoBehaviour
 
     public virtual void ShootRay()
     {
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, aimColliderMask))
+        if (Physics.Raycast(ray, out hit, maxHitDistance, aimColliderMask))
         {
            
             hitTarget = hit.transform;

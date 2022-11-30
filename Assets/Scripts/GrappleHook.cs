@@ -32,6 +32,7 @@ public class GrappleHook : ShootingRayCast2
         keyboard = Keyboard.current;
         controller = GetComponent<CharacterController>();
         _usingGrapple = false;
+        maxHitDistance = 35f;
     }
 
     // Update is called once per frame
@@ -62,6 +63,7 @@ public class GrappleHook : ShootingRayCast2
         
         direction = hit.point - transform.position; // get direction vector from player to target
         direction = direction.normalized;
+       
        
 
 

@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.health = 5;   
+        this.health = 5;
     }
 
     public void TakeDamage(int damage)
@@ -20,5 +20,9 @@ public class Health : MonoBehaviour
             Destroy(this.gameObject);
         }
         this.health -= damage;
+    }
+    public int HealthPoints
+    {
+        get { return health; }
     }
 }
