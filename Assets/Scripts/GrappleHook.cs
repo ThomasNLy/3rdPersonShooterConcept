@@ -63,6 +63,7 @@ public class GrappleHook : ShootingRayCast2
         
         direction = hit.point - transform.position; // get direction vector from player to target
         direction = direction.normalized;
+        Debug.Log(hit.transform.gameObject.name);
        
        
 

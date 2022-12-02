@@ -81,7 +81,7 @@ public class PlayerMove : MonoBehaviour
 
             ySpeed.y = 6;
         }
-        Debug.Log(controller.isGrounded);
+        //Debug.Log(controller.isGrounded);
 
         ySpeed.y +=  gravityScale *  Time.deltaTime;
         if (ySpeed.y >= 30f)
