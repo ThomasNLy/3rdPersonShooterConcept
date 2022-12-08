@@ -40,4 +40,14 @@ public class AIPathFinding : MonoBehaviour
     {
         movePositionTransform = t;
     }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            navMeshAgent.destination = this.transform.position; // have the agent stay in place and not push the player constantly
+        }
+    }
+
+    
 }
