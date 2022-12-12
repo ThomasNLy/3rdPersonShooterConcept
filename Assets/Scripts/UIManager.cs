@@ -9,6 +9,10 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI UIHealth;
     public Health playerHealth;
     public Slider healthBarSlider;
+
+    [Header("Gun/Ammo References")]
+    public TextMeshProUGUI ammo;
+    public ShootGun gun;
     
     // Start is called before the first frame update
     void Start()
@@ -21,6 +25,8 @@ public class UIManager : MonoBehaviour
     {
         UIHealth.text = playerHealth.HealthPoints.ToString();
         SetHealth(playerHealth.HealthPoints);
+
+        ammo.text = gun.MagazineCount.ToString() + "/" + gun.TotalAmmo.ToString();
     }
 
 
