@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -100, y: 25}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -140, y: 67}
+  m_SizeDelta: {x: 200, y: 54.1097}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &35984630
 MonoBehaviour:
@@ -1474,6 +1474,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1331378647 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4853897944966613442, guid: ed9c55ac640d6ff48bb348a8dc0a5e23, type: 3}
+  m_PrefabInstance: {fileID: 4853897944113410055}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645392628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1e5dd29366c1a449920c1e3f3f5c618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1337252066
 GameObject:
   m_ObjectHideFlags: 0
@@ -2139,6 +2150,8 @@ MonoBehaviour:
   UIHealth: {fileID: 1585335729}
   playerHealth: {fileID: 1331378632}
   healthBarSlider: {fileID: 1195885839}
+  ammo: {fileID: 35984630}
+  gun: {fileID: 1331378647}
 --- !u!4 &1899633397
 Transform:
   m_ObjectHideFlags: 0
