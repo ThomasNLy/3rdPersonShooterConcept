@@ -6,21 +6,36 @@ using UnityEngine.InputSystem;
 public class ShootGun : ShootingRayCast2
 {
     Mouse mouse;
-    [Header("Bullet fx")]
+    [Header("Bullet fx and shootingFX References")]
     public Transform bulletFX;
-   
+
     public GameObject muzzleFlash;
     [Header("Fire Rate Variables")]
     [SerializeField]
     private float fireRate = 0.1f;
     [SerializeField]
     private float nextShot = 0f;
+
+    [Header("Ammo Variables")]
+    [SerializeField]
+    private int totalAmmo;
+    [SerializeField]
+    private int magazineAmmo;
+    [SerializeField]
+    private int magazineSize;
+   
     // Start is called before the first frame update
     void Start()
     {
         mouse = Mouse.current;
         bulletFX.gameObject.GetComponent<ParticleSystem>().Stop();
         muzzleFlash.gameObject.GetComponent<ParticleSystem>().Stop();
+
+
+        totalAmmo = 600;
+        magazineAmmo = 30;
+        magazineSize = 30;
+        
     }
 
     // Update is called once per frame
@@ -31,19 +46,34 @@ public class ShootGun : ShootingRayCast2
 
     public override void ShootRay()
     {
-        if (mouse.leftButton.isPressed && nextShot >= fireRate)
+        if (mouse.leftButton.isPressed && nextShot >= fireRate && magazineAmmo > 0)
         {
             nextShot = 0f;
             base.ShootRay();
             muzzleFlash.gameObject.GetComponent<ParticleSystem>().Play();
+            ShootBullet();
         }
+        else if(magazineAmmo == 0 && mouse.leftButton.isPressed)
+        {
+             Reload(); 
+
+        }
+
+        
         if (nextShot < fireRate)
         {
             nextShot += Time.deltaTime;
         }
 
+        if (Keyboard.current.rKey.isPressed)
+        {
+            Reload();
+        }
+
         
-        
+
+
+
     }
 
     protected override void DoSomethingWhenHit()
@@ -54,5 +84,46 @@ public class ShootGun : ShootingRayCast2
         }
         bulletFX.position = hit.point;
         bulletFX.gameObject.GetComponent<ParticleSystem>().Play();
+    }
+
+
+    private void Reload()
+    {
+        if ( magazineAmmo < magazineSize && totalAmmo > magazineSize)
+        {
+            magazineAmmo = magazineSize;
+          
+           
+        }
+        else if (totalAmmo <= magazineSize)
+        {
+           
+            magazineAmmo = totalAmmo;
+        }
+
+        //if (totalAmmo < 30)
+        //{ Debug.Log("works");
+
+        //    magazineAmmo = totalAmmo;
+        //}
+
+       //Debug.Log(magazineAmmo);
+      //  Debug.Log("totalAmmo" + totalAmmo.ToString());
+    }
+
+    private void ShootBullet()
+    {
+        magazineAmmo -= 1;
+        totalAmmo -= 1;
+    }
+
+    public int MagazineCount
+    {
+        get { return magazineAmmo; }
+    }
+
+    public int TotalAmmo
+    {
+        get { return totalAmmo; }
     }
 }
