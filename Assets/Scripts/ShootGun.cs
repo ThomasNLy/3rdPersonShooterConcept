@@ -55,7 +55,8 @@ public class ShootGun : ShootingRayCast2
         }
         else if(magazineAmmo == 0 && mouse.leftButton.isPressed)
         {
-             Reload(); 
+            Invoke("Reload", 1); 
+            //Reload(); 
 
         }
 
@@ -67,7 +68,8 @@ public class ShootGun : ShootingRayCast2
 
         if (Keyboard.current.rKey.isPressed)
         {
-            Reload();
+            Invoke("Reload", 1);
+            //Reload();
         }
 
         
