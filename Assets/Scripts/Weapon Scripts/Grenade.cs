@@ -36,10 +36,6 @@ public class Grenade : MonoBehaviour
             Invoke("Explode", explosionTimer);
         }
 
-        //if (explosionFX.GetComponent<ParticleSystem>().isPlaying) /*&& !explosionFX.GetComponent<ParticleSystem>().isPlaying)*/
-        //{
-        //    Destroy(this.gameObject, durationTimer);
-        //}
 
 
 
