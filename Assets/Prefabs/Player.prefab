@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 4853897944966613432}
   - component: {fileID: 4853897944966613433}
   - component: {fileID: 4853897944966613434}
+  - component: {fileID: 7179965979916608305}
   - component: {fileID: 3537941066376338236}
   - component: {fileID: 2530961477865418733}
   - component: {fileID: 4853897944966613445}
@@ -204,6 +205,22 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7179965979916608305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4853897944966613435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebec4b88745c74b4a9126a2e8c661a17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToThrow: {fileID: 0}
+  upForce: 0
+  forwardForce: 0
+  launchPoint: {fileID: 0}
 --- !u!114 &3537941066376338236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +284,9 @@ MonoBehaviour:
   muzzleFlash: {fileID: 1450112501487448379}
   fireRate: 0.1
   nextShot: 0
+  totalAmmo: 0
+  magazineAmmo: 0
+  magazineSize: 0
 --- !u!114 &4853897944966613441
 MonoBehaviour:
   m_ObjectHideFlags: 0
