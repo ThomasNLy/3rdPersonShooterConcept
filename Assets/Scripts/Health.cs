@@ -15,11 +15,12 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        this.health -= damage;
         if (this.health <= 0)
         {
             Destroy(this.gameObject);
         }
-        this.health -= damage;
+        
     }
     public int HealthPoints
     {
