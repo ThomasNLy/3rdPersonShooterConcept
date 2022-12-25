@@ -21,7 +21,7 @@ public class ThrowItem : MonoBehaviour
     [SerializeField]
     private int throwDelay;
     [SerializeField]
-    private LayerMask aimColliderMask = new LayerMask();
+    public LayerMask aimColliderMask = new LayerMask();
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +56,7 @@ public class ThrowItem : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit hit, 500f))
         {
             direction = (hit.point - launchPoint.position).normalized;
-            Debug.Log(direction);
+            //Debug.Log(direction);
             Debug.DrawRay(ray.origin, ray.direction * 500f, Color.red);
 
         }
