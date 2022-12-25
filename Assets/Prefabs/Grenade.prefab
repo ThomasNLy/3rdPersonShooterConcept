@@ -17,7 +17,7 @@ GameObject:
   m_Layer: 0
   m_Name: Grenade
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430190552639076937}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.4334707, y: 1, z: 3.6597037}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.31941, y: 0.31941, z: 0.31941}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -115,7 +115,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &8031977561415632450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionFX: {fileID: 8097456824521998595}
-  exploded: 0
+  startFuse: 0
   durationTimer: 0
   explosionTimer: 0
 --- !u!1001 &6841263973201352216
@@ -142,15 +142,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 557769344281147663, guid: 9f16330167b7c5541b44ed8bd82da6c2, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.8276207
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 557769344281147663, guid: 9f16330167b7c5541b44ed8bd82da6c2, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.8276207
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 557769344281147663, guid: 9f16330167b7c5541b44ed8bd82da6c2, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.8276207
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3363906631177492251, guid: 9f16330167b7c5541b44ed8bd82da6c2, type: 3}
       propertyPath: m_Name
@@ -166,15 +166,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4200846036379480920, guid: 9f16330167b7c5541b44ed8bd82da6c2, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5705955
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4200846036379480920, guid: 9f16330167b7c5541b44ed8bd82da6c2, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5705955
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4200846036379480920, guid: 9f16330167b7c5541b44ed8bd82da6c2, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5705955
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4200846036379480920, guid: 9f16330167b7c5541b44ed8bd82da6c2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -220,6 +220,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5507445877498177995, guid: 9f16330167b7c5541b44ed8bd82da6c2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5792096580289739600, guid: 9f16330167b7c5541b44ed8bd82da6c2, type: 3}
       propertyPath: looping
       value: 0
@@ -244,17 +248,21 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6217818735646684816, guid: 9f16330167b7c5541b44ed8bd82da6c2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8126874075679587512, guid: 9f16330167b7c5541b44ed8bd82da6c2, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.4154
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8126874075679587512, guid: 9f16330167b7c5541b44ed8bd82da6c2, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.4154
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8126874075679587512, guid: 9f16330167b7c5541b44ed8bd82da6c2, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.4154
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8628339997516883026, guid: 9f16330167b7c5541b44ed8bd82da6c2, type: 3}
       propertyPath: looping
@@ -277,16 +285,3 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3363906631177492251, guid: 9f16330167b7c5541b44ed8bd82da6c2, type: 3}
   m_PrefabInstance: {fileID: 6841263973201352216}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &2772446530622164991
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8097456824521998595}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 7.21
-  m_Center: {x: 0, y: 0, z: 0.00000047683716}
