@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ShootMissle : MonoBehaviour
+public class ShootMissile : MonoBehaviour
 {
     Mouse mouse;
     [Header("Prefab Reference")]
