@@ -23,6 +23,10 @@ public class ShootGun : ShootingRayCast2
     private int magazineAmmo;
     [SerializeField]
     private int magazineSize;
+    [SerializeField]
+    private int reloadTime;
+    [SerializeField]
+    public bool reloading;
    
     // Start is called before the first frame update
     void Start()
@@ -35,6 +39,8 @@ public class ShootGun : ShootingRayCast2
         totalAmmo = 600;
         magazineAmmo = 30;
         magazineSize = 30;
+        reloadTime = 2;
+        reloading = false;
         
     }
 
@@ -55,7 +61,8 @@ public class ShootGun : ShootingRayCast2
         }
         else if(magazineAmmo == 0 && mouse.leftButton.isPressed)
         {
-            Invoke("Reload", 1); 
+            reloading = true;
+            Invoke("Reload", reloadTime); 
             //Reload(); 
 
         }
@@ -66,10 +73,13 @@ public class ShootGun : ShootingRayCast2
             nextShot += Time.deltaTime;
         }
 
-        if (Keyboard.current.rKey.isPressed)
+        if (Keyboard.current.rKey.isPressed && magazineAmmo < magazineSize)
         {
-            Invoke("Reload", 1);
+            reloading = true;
+            Invoke("Reload", reloadTime);
             //Reload();
+
+            
         }
 
         
@@ -91,17 +101,22 @@ public class ShootGun : ShootingRayCast2
 
     private void Reload()
     {
+        reloading = false;
+
         if ( magazineAmmo < magazineSize && totalAmmo > magazineSize)
         {
             magazineAmmo = magazineSize;
-          
-           
+            
+
+
         }
         else if (totalAmmo <= magazineSize)
         {
            
             magazineAmmo = totalAmmo;
         }
+        
+      
 
         //if (totalAmmo < 30)
         //{ Debug.Log("works");
@@ -109,8 +124,8 @@ public class ShootGun : ShootingRayCast2
         //    magazineAmmo = totalAmmo;
         //}
 
-       //Debug.Log(magazineAmmo);
-      //  Debug.Log("totalAmmo" + totalAmmo.ToString());
+        //Debug.Log(magazineAmmo);
+        //  Debug.Log("totalAmmo" + totalAmmo.ToString());
     }
 
     private void ShootBullet()
@@ -127,5 +142,13 @@ public class ShootGun : ShootingRayCast2
     public int TotalAmmo
     {
         get { return totalAmmo; }
+    }
+
+    public int ReloadTime
+    {
+        get
+        {
+            return reloadTime;
+        }
     }
 }
