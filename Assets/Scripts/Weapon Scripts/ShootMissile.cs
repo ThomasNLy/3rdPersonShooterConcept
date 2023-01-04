@@ -34,8 +34,20 @@ public class ShootMissile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (timer < maxTime)
+        {
+            timer += Time.deltaTime;
+        }
+        else
+        {
+            timer = 0f;
+            FindTargets();
+            //Debug.Log(targets.Count);
+        }
+
         if (mouse.rightButton.isPressed && nextShot <= 0)
         {
+           
             nextShot = fireRate;
             for (int i = 0; i < 5; i++)
             {
@@ -54,16 +66,7 @@ public class ShootMissile : MonoBehaviour
         }
         
 
-        if (timer < maxTime)
-        {
-            timer += Time.deltaTime;
-        }
-        else
-        {
-            timer = 0f;
-            FindTargets();
-            Debug.Log(targets.Count);
-        }
+       
 
         if (nextShot > 0)
         {
