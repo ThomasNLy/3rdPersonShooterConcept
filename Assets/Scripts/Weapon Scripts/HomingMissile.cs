@@ -87,6 +87,17 @@ public class HomingMissile : MonoBehaviour
             Destroy(this.gameObject, explosionFX.GetComponent<ParticleSystem>().main.duration);
             other.GetComponent<Health>().TakeDamage(2);
         }
+        else if (other.tag == "Floor" || other.tag == "Wall")
+        {
+            Debug.Log(other.name);
+            explosionFX.GetComponent<ParticleSystem>().Play();
+            Destroy(this.gameObject, explosionFX.GetComponent<ParticleSystem>().main.duration);
+        }
+
+
+
+
+
 
     }
 }
