@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6277630989556801315}
   - component: {fileID: 7179312781206343023}
   m_Layer: 0
-  m_Name: Missle
-  m_TagString: Untagged
+  m_Name: Missile
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 8756558597231144876}
   m_Layer: 0
   m_Name: HomingMissile
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
