@@ -32,18 +32,20 @@ public class ShootingRayCast2 : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        hitTarget = null;
+        //hitTarget = null;
 
-        screenCenterPoint = new Vector3(Screen.width / 2, Screen.height / 2);
-        ray = Camera.main.ScreenPointToRay(screenCenterPoint);
+        //screenCenterPoint = new Vector3(Screen.width / 2, Screen.height / 2);
+        //ray = Camera.main.ScreenPointToRay(screenCenterPoint);
         ShootRay();
 
-
+       
 
     }
 
     public virtual void ShootRay()
     {
+        screenCenterPoint = new Vector3(Screen.width / 2, Screen.height / 2);
+        ray = Camera.main.ScreenPointToRay(screenCenterPoint);
         if (Physics.Raycast(ray, out hit, maxHitDistance, aimColliderMask))
         {
            
@@ -54,6 +56,7 @@ public class ShootingRayCast2 : MonoBehaviour
             {
                 DoSomethingWhenHit();
             }
+            hitTarget = null;
         }
     }
     protected virtual void DoSomethingWhenHit()
