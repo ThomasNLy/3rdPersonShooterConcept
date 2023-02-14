@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     public Slider healthBarSlider;
 
     [Header("Gun/Ammo References")]
-    public TextMeshProUGUI ammo;
+    public TextMeshProUGUI ammoCount;
     public ShootGun gun;
     public GameObject reloadProgressBarUI;
     private Slider reloadProgressBar;
@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour
         UIHealth.text = playerHealth.HealthPoints.ToString();
         SetHealth(playerHealth.HealthPoints);
 
-        ammo.text = gun.MagazineCount.ToString() + "/" + gun.TotalAmmo.ToString();
+        ammoCount.text = gun.MagazineCount.ToString() + "/" + gun.TotalAmmo.ToString();
       
 
         if (gun.reloading)

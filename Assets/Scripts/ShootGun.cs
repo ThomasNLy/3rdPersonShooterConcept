@@ -27,7 +27,15 @@ public class ShootGun : ShootingRayCast2
     private int reloadTime;
     [SerializeField]
     public bool reloading;
-   
+
+    private void Awake()
+    {
+        totalAmmo = 600;
+        magazineAmmo = 30;
+        magazineSize = 30;
+        reloadTime = 2;
+        reloading = false;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -36,11 +44,11 @@ public class ShootGun : ShootingRayCast2
         muzzleFlash.gameObject.GetComponent<ParticleSystem>().Stop();
 
 
-        totalAmmo = 600;
-        magazineAmmo = 30;
-        magazineSize = 30;
-        reloadTime = 2;
-        reloading = false;
+        //totalAmmo = 600;
+        //magazineAmmo = 30;
+        //magazineSize = 30;
+        //reloadTime = 2;
+        //reloading = false;
         
     }
 
