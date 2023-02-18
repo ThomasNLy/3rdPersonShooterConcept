@@ -13,19 +13,19 @@ public class Gun : ShootingRayCast2
     public GameObject muzzleFlash;
     [Header("Fire Rate Variables")]
     [SerializeField]
-    private float fireRate = 0.1f;
+    public float fireRate = 0.1f;
     [SerializeField]
-    private float nextShot = 0f;
+    public float nextShot = 0f;
 
     [Header("Ammo Variables")]
     [SerializeField]
-    private int totalAmmo;
+    protected int totalAmmo;
     [SerializeField]
-    private int magazineAmmo;
+    protected int magazineAmmo;
     [SerializeField]
-    private int magazineSize;
+    protected int magazineSize;
     [SerializeField]
-    private int reloadTime;
+    protected int reloadTime;
     [SerializeField]
     public bool reloading;
 
@@ -36,58 +36,68 @@ public class Gun : ShootingRayCast2
         magazineSize = 30;
         reloadTime = 2;
         reloading = false;
+        nextShot = fireRate;
     }
     // Start is called before the first frame update
     void Start()
     {
         mouse = Mouse.current;
+        Init();
+    }
+
+    protected virtual void Init()
+    {
         bulletFX.gameObject.GetComponent<ParticleSystem>().Stop();
         muzzleFlash.gameObject.GetComponent<ParticleSystem>().Stop();
-
-
-   
-
     }
 
-    // Update is called once per frame
-    public override void Update()
+    public virtual void Shoot()
     {
-        Shoot();
-    }
-
-
-    public void Shoot()
-    {
-        if (mouse.leftButton.isPressed && nextShot >= fireRate && magazineAmmo > 0)
+        if (nextShot >= fireRate)
         {
-            nextShot = 0f;
+            nextShot = 0;
             base.ShootRay();
             muzzleFlash.gameObject.GetComponent<ParticleSystem>().Play();
             ShootBullet();
         }
-        else if (magazineAmmo == 0 && mouse.leftButton.isPressed)
-        {
-            reloading = true;
-            Invoke("Reload", reloadTime);
-            
+        //if (mouse.leftButton.isPressed && nextShot >= fireRate && magazineAmmo > 0)
+        //{
+        //    nextShot = 0f;
+        //    base.ShootRay();
+        //    muzzleFlash.gameObject.GetComponent<ParticleSystem>().Play();
+        //    ShootBullet();
+        //}
+        //else if (magazineAmmo == 0 && mouse.leftButton.isPressed)
+        //{
+        //    reloading = true;
+        //    Invoke("Reload", reloadTime);
 
-        }
+
+        //}
 
 
+        //if (nextShot < fireRate)
+        //{
+        //    nextShot += Time.deltaTime;
+        //}
+
+        //if (Keyboard.current.rKey.isPressed && magazineAmmo < magazineSize)
+        //{
+        //    reloading = true;
+        //    Invoke("Reload", reloadTime);
+
+
+
+        //}
+
+    }
+
+    public virtual void FireRateCoolDown()
+    {
         if (nextShot < fireRate)
         {
             nextShot += Time.deltaTime;
         }
-
-        if (Keyboard.current.rKey.isPressed && magazineAmmo < magazineSize)
-        {
-            reloading = true;
-            Invoke("Reload", reloadTime);
-           
-
-
-        }
-
     }
 
     protected override void DoSomethingWhenHit()
@@ -101,7 +111,7 @@ public class Gun : ShootingRayCast2
     }
 
 
-    private void Reload()
+    public void Reload()
     {
         reloading = false;
 
@@ -119,7 +129,7 @@ public class Gun : ShootingRayCast2
         }
     }
 
-    private void ShootBullet()
+    protected void ShootBullet()
     {
         magazineAmmo -= 1;
         totalAmmo -= 1;
@@ -142,4 +152,9 @@ public class Gun : ShootingRayCast2
             return reloadTime;
         }
     }
+    public int MagazineSize
+    {
+        get { return magazineSize; }
+    }
+        
 }
