@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Gun/Ammo References")]
     public TextMeshProUGUI ammoCount;
-    public ShootGun gun;
+    public WeaponManager weaponManager;
     public GameObject reloadProgressBarUI;
     private Slider reloadProgressBar;
     
@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour
     {
         reloadProgressBarUI.SetActive(false);
         reloadProgressBar = reloadProgressBarUI.GetComponent<Slider>();
-        reloadProgressBar.maxValue = gun.ReloadTime;
+        reloadProgressBar.maxValue = weaponManager.currentWeapon.ReloadTime;
         reloadProgressBar.value = 0;
         
 
@@ -35,12 +35,12 @@ public class UIManager : MonoBehaviour
         UIHealth.text = playerHealth.HealthPoints.ToString();
         SetHealth(playerHealth.HealthPoints);
 
-        ammoCount.text = gun.MagazineCount.ToString() + "/" + gun.TotalAmmo.ToString();
+        ammoCount.text = weaponManager.currentWeapon.MagazineCount.ToString() + "/" + weaponManager.currentWeapon.TotalAmmo.ToString();
       
 
-        if (gun.reloading)
+        if (weaponManager.currentWeapon.reloading)
         {
-
+            reloadProgressBar.maxValue = weaponManager.currentWeapon.ReloadTime;
           
             reloadProgressBarUI.SetActive(true);
             ReloadProgressBar();
