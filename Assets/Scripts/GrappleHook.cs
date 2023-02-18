@@ -36,9 +36,9 @@ public class GrappleHook : ShootingRayCast2
     }
 
     // Update is called once per frame
-    public override void Update()
+    public void Update()
     {
-        base.Update();
+        ShootRay();
         
     }
 
