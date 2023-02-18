@@ -22,26 +22,6 @@ public class ShootingRayCast2 : MonoBehaviour
     Vector2 screenCenterPoint;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-       
-
-    }
-
-    // Update is called once per frame
-    public virtual void Update()
-    {
-        //hitTarget = null;
-
-        //screenCenterPoint = new Vector3(Screen.width / 2, Screen.height / 2);
-        //ray = Camera.main.ScreenPointToRay(screenCenterPoint);
-        ShootRay();
-
-       
-
-    }
-
     public virtual void ShootRay()
     {
         screenCenterPoint = new Vector3(Screen.width / 2, Screen.height / 2);
