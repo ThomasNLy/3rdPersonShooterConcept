@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem.HID;
-using UnityEngine.InputSystem;
 
 public class Gun : ShootingRayCast2
 {
-    Mouse mouse;
+    
     [Header("Bullet fx and shootingFX References")]
     public Transform bulletFX;
 
@@ -41,7 +39,7 @@ public class Gun : ShootingRayCast2
     // Start is called before the first frame update
     void Start()
     {
-        mouse = Mouse.current;
+      
         Init();
     }
 

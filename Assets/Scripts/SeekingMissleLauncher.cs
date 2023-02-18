@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 
 public class SeekingMissleLauncher : Gun
 {
-    Mouse mouse;
+
     [Header("Prefab Reference")]
     public GameObject homingMissile;
     List<GameObject> targets;
@@ -25,7 +25,7 @@ public class SeekingMissleLauncher : Gun
         weaponRange = 30;
         fireRate = 2f;
         nextShot = fireRate;
-        mouse = Mouse.current;
+    
         magazineAmmo = 5;
         magazineSize = 5;
         totalAmmo = 10;
