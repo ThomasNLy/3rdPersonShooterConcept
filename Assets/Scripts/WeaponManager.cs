@@ -6,20 +6,26 @@ using UnityEngine.InputSystem;
 public class WeaponManager : MonoBehaviour
 {
     Keyboard keyboard;
+    Mouse mouse;
     
     Gun[] guns = new Gun[2];
 
-    Gun currentGun;
+    public Gun currentWeapon;
 
     public Gun primary;
     public Gun secondary;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         guns[0] = primary;
         guns[1] = secondary;
-        currentGun = guns[0];
+        currentWeapon = guns[0];
         keyboard = Keyboard.current;
+        mouse = Mouse.current;
+    }
+    void Start()
+    {
+       
     }
 
     // Update is called once per frame
@@ -27,12 +33,37 @@ public class WeaponManager : MonoBehaviour
     {
         if (keyboard.digit1Key.isPressed)
         {
-            currentGun = guns[0];
+            currentWeapon = guns[0];
         }
         else if (keyboard.digit2Key.isPressed)
         {
-            currentGun = guns[1];
+            currentWeapon = guns[1];
         }
-        
+        //currentWeapon.Shoot();
+        currentWeapon.FireRateCoolDown();
+
+
+        if (mouse.leftButton.isPressed && currentWeapon.MagazineCount > 0)
+        {
+            currentWeapon.Shoot();
+        }
+        else if (currentWeapon.MagazineCount == 0 && mouse.leftButton.isPressed)
+        {
+            currentWeapon.reloading = true;
+            currentWeapon.Invoke("Reload", currentWeapon.ReloadTime);
+
+
+        }
+
+
+      
+
+        if (Keyboard.current.rKey.isPressed && currentWeapon.MagazineCount < currentWeapon.MagazineSize)
+        {
+            currentWeapon.reloading = true;
+            currentWeapon.Invoke("Reload", currentWeapon.ReloadTime);
+
+        }
+
     }
 }
