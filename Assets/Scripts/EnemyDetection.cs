@@ -23,7 +23,7 @@ public class EnemyDetection : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             pathFinding.SetTarget(other.gameObject.transform);
-            //Debug.Log("Found");
+            Debug.Log("Found");
         }
     }
 
