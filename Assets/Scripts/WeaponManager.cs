@@ -8,18 +8,18 @@ public class WeaponManager : MonoBehaviour
     Keyboard keyboard;
     Mouse mouse;
     
-    Gun[] guns = new Gun[2];
+    public Gun[] guns = new Gun[2];
 
     public Gun currentWeapon;
 
-    public Gun primary;
-    public Gun secondary;
+   
     // Start is called before the first frame update
     private void Awake()
     {
-        guns[0] = primary;
-        guns[1] = secondary;
+        //guns[0] = primary;
+        //guns[1] = secondary;
         currentWeapon = guns[0];
+        guns[1].gameObject.SetActive(false);
         keyboard = Keyboard.current;
         mouse = Mouse.current;
     }
@@ -34,10 +34,14 @@ public class WeaponManager : MonoBehaviour
         if (keyboard.digit1Key.isPressed)
         {
             currentWeapon = guns[0];
+            guns[0].gameObject.SetActive(true);
+            guns[1].gameObject.SetActive(false);
         }
         else if (keyboard.digit2Key.isPressed)
         {
             currentWeapon = guns[1];
+            guns[0].gameObject.SetActive(false);
+            guns[1].gameObject.SetActive(true);
         }
         //currentWeapon.Shoot();
         currentWeapon.FireRateCoolDown();
