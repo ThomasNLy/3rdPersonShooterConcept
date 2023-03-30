@@ -1172,17 +1172,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1584738279 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2334543570392214893, guid: ed9c55ac640d6ff48bb348a8dc0a5e23, type: 3}
-  m_PrefabInstance: {fileID: 4853897944113410055}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52dc154bc78a39f4583a4e6feb387604, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1585335729 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1128592495163213598, guid: ee713d08d93dccf428f06b9e8d797083, type: 3}
@@ -1662,10 +1651,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1331378635, guid: ed9c55ac640d6ff48bb348a8dc0a5e23, type: 3}
-      propertyPath: secondary
-      value: 
-      objectReference: {fileID: 1584738279}
     - target: {fileID: 4853897944966613435, guid: ed9c55ac640d6ff48bb348a8dc0a5e23, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1769,14 +1754,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5272018040487414995, guid: 4cc7d4cc4f79b6f41add3c699bbad2a4, type: 3}
-      propertyPath: gun
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5272018040487414995, guid: 4cc7d4cc4f79b6f41add3c699bbad2a4, type: 3}
-      propertyPath: ammo
-      value: 
-      objectReference: {fileID: 35984630}
     - target: {fileID: 5272018040487414995, guid: 4cc7d4cc4f79b6f41add3c699bbad2a4, type: 3}
       propertyPath: UIHealth
       value: 

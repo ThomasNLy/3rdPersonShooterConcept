@@ -122,7 +122,7 @@ Transform:
   - {fileID: 5531046423359187805}
   - {fileID: 2536877413562726243}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4853897944966613447
 MeshFilter:
@@ -422,9 +422,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57a43edf3c2b5194585e8fdfaf0d99ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentGun: {fileID: 0}
-  primary: {fileID: 2000970674}
-  secondary: {fileID: 0}
+  guns:
+  - {fileID: 2000970674}
+  - {fileID: 2334543570392214893}
+  currentWeapon: {fileID: 0}
 --- !u!1001 &2647683289235804296
 PrefabInstance:
   m_ObjectHideFlags: 0
