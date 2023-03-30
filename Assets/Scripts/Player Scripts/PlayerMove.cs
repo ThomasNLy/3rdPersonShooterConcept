@@ -84,12 +84,15 @@ public class PlayerMove : MonoBehaviour
 
         }
         //Debug.Log(controller.isGrounded);
-        
-        ySpeed.y +=  gravityScale *  Time.deltaTime;
-        if (ySpeed.y <= -30f)
-        {
-            ySpeed.y = -30f;
-        }
+
+    
+            ySpeed.y += gravityScale * Time.deltaTime;
+            if (ySpeed.y <= -30f)
+            {
+                ySpeed.y = -30f;
+            }
+       
+       
         controller.Move(ySpeed * Time.deltaTime);
       
 
