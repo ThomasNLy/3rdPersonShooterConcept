@@ -31,6 +31,7 @@ public class WeaponManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         if (keyboard.digit1Key.isPressed)
         {
             currentWeapon = guns[0];

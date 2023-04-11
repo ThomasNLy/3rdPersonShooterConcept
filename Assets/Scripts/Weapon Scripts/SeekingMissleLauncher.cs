@@ -47,8 +47,8 @@ public class SeekingMissleLauncher : Gun
             nextShot = 0;
             for (int i = 0; i < 5; i++)
             {
-                GameObject missile = Instantiate(homingMissile, this.gameObject.transform.position, transform.rotation);
-
+                GameObject missile = Instantiate(homingMissile, this.gameObject.transform.position, this.gameObject.transform.rotation);
+                
                 if (targets.Count > 0)
                 {
                     try
