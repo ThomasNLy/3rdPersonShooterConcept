@@ -44,6 +44,7 @@ public class SeekingMissleLauncher : Gun
         if (nextShot >= fireRate)
         {
             ShootBullet();
+            FindTargets();
             nextShot = 0;
             for (int i = 0; i < 5; i++)
             {
@@ -84,17 +85,18 @@ public class SeekingMissleLauncher : Gun
         
         /**
          * timer used for finding new targets/ if they are still in range/valid
-         */
-        if (timer < maxTime)
-        {
-            timer += Time.deltaTime;
-        }
-        else
-        {
-            timer = 0f;
-            FindTargets();
-            //Debug.Log(targets.Count);
-        }
+        // */
+        //if (timer < maxTime)
+        //{
+        //    timer += Time.deltaTime;
+        //}
+        //else
+        //{
+        //    timer = 0f;
+        //    //FindTargets();
+            
+        //    //Debug.Log(targets.Count);
+        //}
 
     }
     void FindTargets()

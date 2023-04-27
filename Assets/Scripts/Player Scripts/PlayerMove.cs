@@ -53,10 +53,9 @@ public class PlayerMove : MonoBehaviour
 
             if (keyboard.wKey.isPressed)
             {
-                // Vector3 forward = new Vector3(cameraFollowTargetTransform.forward.x, 0, cameraFollowTargetTransform.forward.z);
-                //Debug.Log(cameraFollowTargetTransform.forward);
-                //controller.Move(forward * movementSpeed * Time.deltaTime);
+               
                 controller.Move(transform.forward * movementSpeed * Time.deltaTime);
+
             }
             if (keyboard.sKey.isPressed)
             {

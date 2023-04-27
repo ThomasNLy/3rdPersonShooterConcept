@@ -53,8 +53,14 @@ public class HomingMissile : MonoBehaviour
            
 
         }
-        this.transform.position += direction * speed * Time.deltaTime;
+        //this.transform.position += direction * speed * Time.deltaTime;
         
+        
+    }
+    void FixedUpdate()
+    {
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.MovePosition(transform.position + direction * speed * Time.deltaTime);
     }
 
     public void Init(Transform target)

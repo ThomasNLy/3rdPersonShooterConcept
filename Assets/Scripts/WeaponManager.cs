@@ -52,12 +52,10 @@ public class WeaponManager : MonoBehaviour
         {
             currentWeapon.Shoot();
         }
-        else if (currentWeapon.MagazineCount == 0 && mouse.leftButton.isPressed)
+        else if (currentWeapon.MagazineCount == 0 && mouse.leftButton.isPressed && currentWeapon.TotalAmmo != 0)
         {
             currentWeapon.reloading = true;
             currentWeapon.Invoke("Reload", currentWeapon.ReloadTime);
-
-
         }
 
 
