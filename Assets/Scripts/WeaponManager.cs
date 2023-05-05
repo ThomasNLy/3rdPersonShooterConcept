@@ -51,6 +51,7 @@ public class WeaponManager : MonoBehaviour
         if (mouse.leftButton.isPressed && currentWeapon.MagazineCount > 0)
         {
             currentWeapon.Shoot();
+           
         }
         else if (currentWeapon.MagazineCount == 0 && mouse.leftButton.isPressed && currentWeapon.TotalAmmo != 0)
         {

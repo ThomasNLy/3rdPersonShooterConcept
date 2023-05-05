@@ -64,7 +64,6 @@ public class GrappleHook : ShootingRayCast2
         if (controller.isGrounded)
 
         {
-            Debug.Log("fell back down to ground");
             hitObject = false;
         }
 

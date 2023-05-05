@@ -56,6 +56,7 @@ public class Gun : ShootingRayCast2
             nextShot = 0;
             base.ShootRay();
             muzzleFlash.gameObject.GetComponent<ParticleSystem>().Play();
+            AudioManager.Instance.PlaySMGSoundEffect();
             ShootBullet();
         }
         //if (mouse.leftButton.isPressed && nextShot >= fireRate && magazineAmmo > 0)

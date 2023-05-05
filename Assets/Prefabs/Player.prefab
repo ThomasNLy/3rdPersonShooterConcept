@@ -289,6 +289,7 @@ MonoBehaviour:
   controller: {fileID: 4853897944966613434}
   _usingGrapple: 0
   speed: 12
+  hitObject: 0
   lineRender: {fileID: 0}
   startPoint: {fileID: 4853897944433521934}
 --- !u!120 &4853897944966613440
@@ -493,6 +494,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b019d89f953719849923b7d2de630cdf, type: 3}
       propertyPath: m_Name
       value: ShoulderRocketLauncher
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b019d89f953719849923b7d2de630cdf, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -763,6 +768,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 7f6cd7d799b6d944187720fa21a95222, type: 3}
       propertyPath: m_Name
       value: SMG
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7f6cd7d799b6d944187720fa21a95222, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects:

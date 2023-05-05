@@ -122,8 +122,17 @@ public class HomingMissile : MonoBehaviour
             Explode();
             other.GetComponent<Health>().TakeDamage(2);
         }
-        else if (other.tag == "Floor" || other.tag == "Wall")
+        
+        //else if (other.tag == "Floor" || other.tag == "Wall")
+        //{
+        //    Debug.Log(other.name);
+        //    Explode();
+        //}
+        
+        // explodes when it hits anything that isn't the player or the weapon the player is holding ie. walls, untagged items, the floor
+        else if (other.tag != "Weapon" && other.tag !="Player" && other.tag !="EditorOnly")
         {
+            Debug.Log(other.tag);
             Debug.Log(other.name);
             Explode();
         }
@@ -136,6 +145,7 @@ public class HomingMissile : MonoBehaviour
     }
     private void Explode()
     {
+        AudioManager.Instance.PlayExplosionSoundEffect();
         explosionFX.GetComponent<ParticleSystem>().Play();
         Destroy(this.gameObject, explosionFX.GetComponent<ParticleSystem>().main.duration);
     }

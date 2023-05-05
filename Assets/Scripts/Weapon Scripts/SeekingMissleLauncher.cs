@@ -61,7 +61,7 @@ public class SeekingMissleLauncher : Gun
                     catch (MissingReferenceException e)
                     {
                         missile.GetComponent<HomingMissile>().Init(null);
-                        //Debug.Log("target destroyed already");
+                        Debug.Log("error " + e.ToString());
                     }
                     
                 }

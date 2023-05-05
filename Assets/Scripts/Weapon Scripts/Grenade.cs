@@ -41,8 +41,10 @@ public class Grenade : MonoBehaviour
 
     void Explode()
     {
+        AudioManager.Instance.PlayGrenadeSoundEffect();
         //this.transform.rotation = Quaternion.Euler(0, 0, 0);
         explosionFX.GetComponent<ParticleSystem>().Play();
+        
         Debug.Log("Explosion");
         DealDamage();
         Destroy(this.gameObject, durationTimer);
