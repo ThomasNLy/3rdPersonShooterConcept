@@ -949,7 +949,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1331378643, guid: ed9c55ac640d6ff48bb348a8dc0a5e23, type: 3}
       propertyPath: m_IsKinematic
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1511517595935187240, guid: ed9c55ac640d6ff48bb348a8dc0a5e23, type: 3}
       propertyPath: m_TagString
