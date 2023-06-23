@@ -84,7 +84,7 @@ public class GrappleHook : ShootingRayCast2
         
         direction = hit.point - transform.position; // get direction vector from player to target
         direction = direction.normalized;
-        Debug.Log(hit.transform.gameObject.name);
+        
        
        
 
@@ -119,7 +119,7 @@ public class GrappleHook : ShootingRayCast2
         // prevents player form jumping by accident if they are grappling towards the floor 
         if (usingGrapple && controller.isGrounded == false)
         {
-           Debug.Log("hit the wall");
+          
            hitObject = true;
         }
 

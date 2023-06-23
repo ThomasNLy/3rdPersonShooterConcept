@@ -50,6 +50,7 @@ public class AIPathFinding : MonoBehaviour
     {
         movePositionTransform = t;
        
+       
     }
 
     private void OnCollisionStay(Collision collision)

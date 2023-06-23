@@ -67,7 +67,7 @@ public class ShootingRayCast : MonoBehaviour
                 debugTransform.position = hit.point;
                
                 hitTarget = hit.transform; // get the object it hits transform component
-                Debug.Log(hit.transform.gameObject.name);
+               
                 //shoot = false;
                 nextShot = 0;
 

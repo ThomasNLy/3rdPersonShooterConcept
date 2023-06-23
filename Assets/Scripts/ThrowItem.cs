@@ -57,7 +57,7 @@ public class ThrowItem : MonoBehaviour
         {
             direction = (hit.point - launchPoint.position).normalized;
             //Debug.Log(direction);
-            Debug.DrawRay(ray.origin, ray.direction * 500f, Color.red);
+            //Debug.DrawRay(ray.origin, ray.direction * 500f, Color.red);
 
         }
 

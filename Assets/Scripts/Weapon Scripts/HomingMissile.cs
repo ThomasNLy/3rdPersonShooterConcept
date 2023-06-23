@@ -130,10 +130,10 @@ public class HomingMissile : MonoBehaviour
         //}
         
         // explodes when it hits anything that isn't the player or the weapon the player is holding ie. walls, untagged items, the floor
-        else if (other.tag != "Weapon" && other.tag !="Player" && other.tag !="EditorOnly")
+        else if (other.tag != "Weapon" && other.tag !="Player" && other.tag !="DetectionField")
         {
-            Debug.Log(other.tag);
-            Debug.Log(other.name);
+           
+
             Explode();
         }
 
