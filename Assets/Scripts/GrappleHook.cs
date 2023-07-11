@@ -25,6 +25,8 @@ public class GrappleHook : ShootingRayCast2
 
     Vector3 direction;
 
+    private int numGrappleActivated;
+
     private void Awake()
     {
         lineRender = GetComponent<LineRenderer>();
@@ -37,6 +39,7 @@ public class GrappleHook : ShootingRayCast2
         controller = GetComponent<CharacterController>();
         _usingGrapple = false;
         maxHitDistance = 35f;
+        numGrappleActivated = 0;
     }
 
     // Update is called once per frame
@@ -48,14 +51,30 @@ public class GrappleHook : ShootingRayCast2
 
     public override void ShootRay()
     {
-       
-        if (keyboard.fKey.IsPressed() && !usingGrapple)
+
+        if (keyboard.fKey.wasPressedThisFrame)
         {
-            base.ShootRay();
+            if(!usingGrapple && numGrappleActivated == 0)
+            {
+                base.ShootRay();
+            }
+            numGrappleActivated++; 
+            
+
+            //checks how many times grapple activated and allows canceling if pressed again while grappling 
+            if (numGrappleActivated == 2)
+            {
+                usingGrapple = false;
+                hitObject = false; // needed to prevent the player from jumping up as if hitting a an object to climb over
+                numGrappleActivated = 0;
+            }
 
         }
 
+     
+
         
+
 
         MoveTowardsTarget();
 
@@ -121,6 +140,9 @@ public class GrappleHook : ShootingRayCast2
         {
           
            hitObject = true;
+
+            // resets number of times activated to allow user to grapple cancel again 
+           numGrappleActivated = 0; 
         }
 
         usingGrapple = false;
